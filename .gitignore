@@ -1,0 +1,23 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Local dev
+SITE_ON_CMD
+
+# Work in progress / staging
+ForTheSite/
+
+# Leftover files
+test
+Contents/
+projects/
+
+# Screenshots / docs dumped in root
+Screenshot*.png
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
