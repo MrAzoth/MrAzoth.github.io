@@ -342,7 +342,7 @@ jmp_back_offset   = (target_rva - jmp_back_next_rva) & 0xFFFFFFFF
 Verified in Ghidra — the JMP back lands at `FUN_1400be50d`:
 
 ```
-1400be50d  48 83 c4 28  ADD RSP, 0x28   ✅
+1400be50d  48 83 c4 28  ADD RSP, 0x28
 ```
 
 ### The Patcher Script
@@ -745,30 +745,3 @@ The debugger confirmed:
 - `0x00007FF789655000` was the runtime address of the `.laz` section
 - The decryptor stub executed correctly: `CALL $+5` / `POP RAX` self-located the stub, XOR-decrypted all 96,255 bytes in-place with key `0xAA`, then jumped to the now-decrypted beacon
 - After decryption, valid x64 instructions were visible at `putty+0x1A5020` (`push rsi`, `mov rsi, rsp`, `and rsp, 0FFFFFFFFFFFFFFF0h`), confirming successful in-memory decryption
-
----
-
-## Conclusions and Limitations
-
-This project achieved its primary goals: hands-on mastery of PE internals, manual offset calculation, and working C2 beacon delivery inside a legitimate binary.
-
-**What worked:**
-
-- Full Phase 1 MessageBox PoC with correct stack preservation and JMP back
-- Full Phase 2 beacon injection with XOR evasion bypassing Defender
-- All offsets calculated by hand from PE headers without automated tools
-- Every bug debugged from first principles
-
-**Known limitations:**
-
-- Phase 2 beacon runs on the main thread — PuTTY window never opens
-- IAT hook approach explored but not completed — requires `VirtualProtect` or section header modification to write to `.rdata`
-- No OPSEC considerations applied — RWE section, default C2 profile, self-signed cert are all high-IOC indicators
-
-**Next steps:**
-
-- Implement `GetMessageA` IAT hook for transparent execution
-
----
-
-> *This research was conducted for educational purposes in an isolated lab environment. All techniques described are documented in public threat intelligence reports. No systems were harmed outside of the lab. Only my sleep was involved.*
