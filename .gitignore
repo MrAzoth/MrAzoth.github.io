@@ -11,8 +11,8 @@ ForTheSite/
 
 # Leftover files
 test
-Contents/
-projects/
+/Contents/
+/projects/
 
 # Screenshots / docs dumped in root
 Screenshot*.png
