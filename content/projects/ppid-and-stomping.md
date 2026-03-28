@@ -1,5 +1,5 @@
 ---
-title: "PPID and Stomping — Process Injection Framework"
+title: "PPID Spoofing and Stomping — Process Injection Framework"
 date: 2026-03-28
 tags: ["windows", "maldev", "evasion", "injection", "internals"]
 summary: "Combining PPID Spoofing, Module Stomping, RC4 encryption, and native NT API enumeration into a single injection framework — built from scratch to understand how modern evasion techniques work under the hood."
