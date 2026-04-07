@@ -45,15 +45,13 @@ The order matters. JWTs and structured tokens are caught before generic patterns
 
 ## How It Works
 
-A-Void provides two operating modes inside Burp.
+The workflow is straightforward: right-click any request anywhere in Burp and select **Send to A-Void** from the context menu. The extension loads that specific request and its response into a dedicated tab, fills in the target bar (host, port, HTTPS), and runs the sanitization automatically. It does not intercept or sanitize all traffic — it only processes the individual request you explicitly send to it.
 
-### HTTP Tab
+The main interface is split into four quadrants: top-left shows the raw request, top-right the raw response, bottom-left the sanitized request, bottom-right the sanitized response. The sanitized versions are read-only, with every `SANITIZED_DATA_N` placeholder highlighted in gold so you can immediately see what was replaced.
 
-The main interface. Four quadrants: top-left is the raw request, top-right is the raw response, bottom-left is the sanitized request, bottom-right is the sanitized response. The sanitized versions are read-only, with every `SANITIZED_DATA_N` placeholder highlighted in gold so you can immediately see what was replaced.
+![A-Void sanitizer — highlighted sanitized output](/images/projects/a-void-highlight.jpeg)
 
-Right-click any request in Burp and select **Send to A-Void** from the context menu. The extension loads both the request and response, fills in the target bar (host, port, HTTPS), and runs the sanitization automatically. You can also paste raw HTTP manually into the request area and click **Sanitize**.
-
-The extension handles content-type detection automatically:
+The sanitization engine recognizes different body formats and handles them accordingly:
 
 - **JSON bodies** are parsed recursively — keys are preserved, only values are sanitized. Fields with name-related keys (`nome`, `name`, `customer`, `username`, etc.) get their entire value replaced directly
 - **Base64-encoded bodies** are decoded, sanitized, and re-encoded
@@ -62,11 +60,7 @@ The extension handles content-type detection automatically:
 
 Headers are sanitized selectively: the header name stays intact, only the value gets processed. Request lines (`GET /path HTTP/1.1`) have their URL path and query parameters sanitized while keeping the method and protocol version.
 
-### Free Text Tab
-
-For when you don't have a full HTTP message — just a snippet of text, a log entry, a config block, or anything else you want to clean up before sharing. Paste it in, click **Sanitize Text**, copy the output.
-
-![A-Void sanitizer — highlighted sanitized output](/images/projects/a-void-highlight.jpeg)
+The extension also includes a **Free Text** tab for sanitizing arbitrary text — logs, config snippets, notes, anything you want to clean up before sharing with an LLM without needing a full HTTP message.
 
 ---
 

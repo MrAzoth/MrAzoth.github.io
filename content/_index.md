@@ -48,6 +48,8 @@ I built this site to stay organized, make someone's life easier, and have materi
 
 Feel free to reach out for collaboration, research discussions, or just to say hello.
 
+<u>Many of my projects are hosted on GitHub but kept in private repositories for security reasons. I am happy to walk through them together upon request.</u>
+
 [0xgum@proton.me](mailto:0xgum@proton.me)
 
 ---
