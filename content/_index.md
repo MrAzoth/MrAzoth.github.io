@@ -25,9 +25,9 @@ I built this site to stay organized, make someone's life easier, and have materi
 
 ### Certifications
 
-**`CCST`** **`CompTIA Sec+`** **`OSWP`** **`OSWA`** **`OSCP`** **`OSCP+`** **`eMAPT`** **`CPTS`** **`CRTO`**
+**`CCST`** **`CompTIA Sec+`** **`OSWP`** **`OSWA`** **`OSCP`** **`OSCP+`** **`eMAPT`** **`CPTS`** **`CRTO`** **`MALDEV`**
 
-**Next:** **`CRTO II`** **`MALDEV`**
+**Next:** **`CRTO II`** **`Bof Development`**
 
 ---
 
