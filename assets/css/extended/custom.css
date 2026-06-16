@@ -1,0 +1,445 @@
+/* ═══════════════════════════════════════════════════════
+   LIGHT MODE
+   ═══════════════════════════════════════════════════════ */
+:root {
+  --accent:       #B8860B;
+  --accent-dim:   #B8860B15;
+  --accent-glow:  #B8860B30;
+  --accent-hover: #000000;
+  --bg:           #F5F5F5;
+  --bg-card:      #EBEBEB;
+  --border:       #D0D0D0;
+  --nav-bg:       #F0F0F0f2;
+  --text-main:    #212121;
+  --text-sec:     #555555;
+  --code-bg:      #E4E4E4;
+  --badge-border: #BBBBBB;
+}
+
+/* ═══════════════════════════════════════════════════════
+   DARK MODE
+   ═══════════════════════════════════════════════════════ */
+.dark {
+  --accent:       #DAA520;
+  --accent-dim:   #DAA52015;
+  --accent-glow:  #DAA52030;
+  --accent-hover: #FFFFFF;
+  --bg:           #121212;
+  --bg-card:      #1E1E1E;
+  --border:       #2E2E2E;
+  --nav-bg:       #121212f2;
+  --text-main:    #d9d9d9;
+  --text-sec:     #A0A0A0;
+  --code-bg:      #1A1A1A;
+  --badge-border: #3C3C3C;
+  --theme:        #121212;
+  --entry:        #1E1E1E;
+  --primary:      #d9d9d9;
+  --secondary:    #A0A0A0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   BODY — layout + colors
+   ═══════════════════════════════════════════════════════ */
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#content {
+  flex: 1;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HEADER / NAVBAR
+   ═══════════════════════════════════════════════════════ */
+.header {
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.logo a,
+.logo span {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  color: var(--accent) !important;
+  letter-spacing: 0.08em;
+}
+
+.logo img {
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  margin-right: 8px;
+  object-fit: cover;
+}
+
+nav#site-nav a {
+  color: var(--text-main) !important;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+nav#site-nav a:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HOME INFO BOX
+   ═══════════════════════════════════════════════════════ */
+.home-info {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+  border-radius: 6px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.home-info .title {
+  font-family: 'Courier New', monospace;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.home-info p {
+  color: var(--text-sec);
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════════════════
+   POST / ENTRY CARDS — compact list style
+   ═══════════════════════════════════════════════════════ */
+.post-entry {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  padding: 0.45rem 0.6rem !important;
+  margin: 0 !important;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+}
+
+.post-entry:hover {
+  background: var(--accent-dim);
+  border-color: var(--border);
+  transform: none;
+  box-shadow: none;
+}
+
+.post-entry .entry-header {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.post-entry .entry-header h2 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin: 0;
+  transition: color 0.15s;
+}
+
+.post-entry:hover .entry-header h2 {
+  color: var(--accent);
+}
+
+/* Hide summary and meta in list view */
+.post-entry .entry-content,
+.post-entry .entry-footer {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   ARTICLE CONTENT
+   ═══════════════════════════════════════════════════════ */
+.post-content {
+  line-height: 1.85;
+  color: var(--text-main);
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3em;
+}
+
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  color: var(--text-main);
+}
+
+.post-content p {
+  color: var(--text-main);
+}
+
+.post-content a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.post-content a:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent-hover);
+}
+
+/* Tagline — "Comfort is a misconfiguration." */
+.post-content > p:first-of-type em {
+  display: block;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.1em;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   CODE — inline badges (certifications)
+   ═══════════════════════════════════════════════════════ */
+code {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid var(--badge-border);
+  border-radius: 3px;
+  padding: 0.15em 0.5em;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85em;
+}
+
+.post-content pre {
+  background: #1e1e1e !important;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+}
+
+.post-content pre code {
+  background: transparent !important;
+  border: none;
+  color: #d4d4d4 !important;
+  font-size: 0.9em;
+}
+
+/* Force all hljs tokens to uniform color — no syntax coloring */
+.post-content pre code span {
+  color: #d4d4d4 !important;
+}
+
+.hljs {
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
+}
+
+.copy-code {
+  color: var(--accent) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   BLOCKQUOTE
+   ═══════════════════════════════════════════════════════ */
+.post-content blockquote {
+  border-left: 2px solid var(--accent);
+  background: var(--accent-dim);
+  border-radius: 0 4px 4px 0;
+  padding: 0.7em 1.2em;
+  margin: 1.5em 0;
+  color: var(--accent);
+  font-style: italic;
+  font-family: 'Georgia', serif;
+}
+
+.post-content blockquote p { margin: 0; }
+
+/* ═══════════════════════════════════════════════════════
+   TABLES
+   ═══════════════════════════════════════════════════════ */
+.post-content table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95em;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.post-content table th {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.7em 1.1em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.82em;
+}
+
+.post-content table td {
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 0.65em 1.1em;
+  color: var(--text-main);
+}
+
+.post-content table tbody tr:nth-child(even) td {
+  background: var(--accent-dim);
+}
+
+.post-content table tbody tr:hover td {
+  background: var(--accent-glow);
+  transition: background 0.15s;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION GRID — category cards (web, infra, etc.)
+   ═══════════════════════════════════════════════════════ */
+.post-entry.tag-entry,
+.page-header ~ .post-entry {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem 1.2rem !important;
+  margin-bottom: 0.6rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.post-entry.tag-entry:hover,
+.page-header ~ .post-entry:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px var(--accent-glow);
+  transform: translateY(-2px);
+  background: var(--bg-card);
+}
+
+/* Section index — grid layout */
+.sections-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════ */
+.footer {
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-sec);
+}
+
+.footer a {
+  color: var(--text-sec) !important;
+  transition: color 0.2s;
+}
+
+.footer a:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   IMAGES — responsive, never overflow
+   ═══════════════════════════════════════════════════════ */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  margin: 1.2em auto;
+}
+
+/* ═══════════════════════════════════════════════════════
+   TABLES — horizontal scroll on overflow (mobile)
+   ═══════════════════════════════════════════════════════ */
+.post-content .table-wrapper,
+.post-content table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE — ≤ 768 px
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .home-info {
+    padding: 1.2rem 1rem;
+  }
+
+  .home-info .title {
+    font-size: 1.4rem;
+  }
+
+  .post-content h1 { font-size: 1.4rem; }
+  .post-content h2 { font-size: 1.2rem; }
+  .post-content h3 { font-size: 1.05rem; }
+
+  .post-content pre {
+    font-size: 0.78em;
+    padding: 0.8em;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .post-content table th,
+  .post-content table td {
+    padding: 0.45em 0.6em;
+    font-size: 0.82em;
+  }
+
+  .sections-list {
+    grid-template-columns: 1fr;
+  }
+
+  nav#site-nav {
+    gap: 0.4rem;
+  }
+
+  nav#site-nav a {
+    font-size: 0.85rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   MISC
+   ═══════════════════════════════════════════════════════ */
+.breadcrumbs a { color: var(--accent); }
+
+#searchbox input {
+  border: 1px solid var(--border) !important;
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border-radius: 5px;
+}
+
+#searchbox input:focus {
+  border-color: var(--accent) !important;
+  outline: none;
+}
+
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}

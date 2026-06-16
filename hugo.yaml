@@ -1,0 +1,120 @@
+baseURL: "https://az0th.it"
+languageCode: "en-us"
+title: "MrAzoth"
+theme: PaperMod
+pagination:
+  pagerSize: 100
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: "MrAzoth"
+  description: "Senior Cybersecurity Analyst — offensive security."
+  author: "MrAzoth"
+  defaultTheme: light
+  disableThemeToggle: true
+
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: false
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+
+  assets:
+    disableHLJS: false
+    disableFingerprinting: false
+
+  label:
+    text: "MrAzoth"
+    icon: /images/avatar.png
+    iconHeight: 32
+
+  profileMode:
+    enabled: false
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/MrAzoth"
+    - name: email
+      url: "mailto:0xgum@proton.me"
+
+  cover:
+    hidden: false
+    hiddenInList: false
+    hiddenInSingle: false
+
+  editPost:
+    disabled: true
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
+    - identifier: web
+      name: Web
+      url: /web/
+      weight: 2
+    - identifier: services
+      name: Services
+      url: /services/
+      weight: 3
+    - identifier: wifi
+      name: WiFi
+      url: /wifi/
+      weight: 4
+    - identifier: ad
+      name: AD
+      url: /ad/
+      weight: 5
+    - identifier: llms
+      name: LLMs
+      url: /llms/
+      weight: 6
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 7
+    - identifier: search
+      name: "🔍"
+      url: /search/
+      weight: 8
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
